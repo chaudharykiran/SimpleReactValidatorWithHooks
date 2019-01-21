@@ -1,2 +1,0 @@
-# SimpleReactValidatorWithHooks
-Created with CodeSandbox
