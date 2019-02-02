@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
-import SimpleReactValidator from "./simpleReactValidator";
+import useValidator from './hooks/useValidator'
+
 import "./styles.css";
 
 function App(props) {
-  const validator = new SimpleReactValidator({});
-  validator.showMessages();
-
+  const [validator, showValidationMessage] = useValidator()
   const [password, setPassword] = useState("");
-  const [show, setShow] = useState(false);
 
   const handleChange = e => {
     const { value } = e.target;
@@ -23,31 +21,14 @@ function App(props) {
     } else {
       // validator.showMessages();
       // rerender to show messages for the first time
-      // forceUpdate(true);
-      setShow(true);
-    }
-  };
-
-  const validate = (field, inputValue, validations, options = {}) => {
-    console.log("Validate Run");
-    const validatedMsg = validator.message(
-      field,
-      inputValue,
-      validations,
-      (options = {})
-    );
-
-    if (show) {
-      return validatedMsg;
-    } else {
-      return;
+      showValidationMessage(true);
     }
   };
 
   return (
     <div className="App">
       <input name={"password"} value={password} onChange={handleChange} />
-      {validate("password", password, "required|min:10", {
+      {validator.message("password", password, "required|min:10", {
         messages: {
           required: "Password is required"
         }

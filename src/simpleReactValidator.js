@@ -320,7 +320,6 @@ export default class SimpleReactValidator {
             options
           );
         } else if (this.messagesShown) {
-          console.log("MessageShown-----------", this.messagesShown);
           return this.helpers.element(message, options);
         }
       }
