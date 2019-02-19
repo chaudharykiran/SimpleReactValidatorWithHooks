@@ -1,7 +1,3 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import useValidator from './hooks/useValidator'
 
-import App from './docs/demo'
-
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+export default useValidator
