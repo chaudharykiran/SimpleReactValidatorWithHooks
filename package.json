@@ -5,9 +5,8 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
-    "moment": "2.23.0",
-    "react": "16.8.0-alpha.0",
-    "react-dom": "16.8.0-alpha.0",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
     "react-scripts": "2.0.3",
     "simple-react-validator": "^1.0.5"
   },
